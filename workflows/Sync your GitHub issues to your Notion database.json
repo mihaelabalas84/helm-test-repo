@@ -1,0 +1,365 @@
+{
+  "active": true,
+  "connections": {
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "Create database page",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Trigger on issues": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-01-12T14:03:34.308Z",
+  "id": "TOj21kMIybKeDDQs",
+  "meta": {
+    "templateId": "1804",
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Sync your GitHub issues to your Notion database",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "ade73a77-a9b9-4f13-9811-874f7f68bb31",
+          "mode": "list",
+          "cachedResultName": "Tasks",
+          "cachedResultUrl": "https://www.notion.so/ade73a77a9b94f139811874f7f68bb31"
+        },
+        "title": "={{$json[\"body\"][\"issue\"][\"title\"]}}",
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Task name|title",
+              "title": "={{ $json.body.issue.title }}"
+            },
+            {
+              "key": "Summary|rich_text",
+              "textContent": "{{ $json.body.issue.body }}"
+            }
+          ]
+        },
+        "blockUi": {
+          "blockValues": [
+            {
+              "textContent": "={{ $json.body.issue.body }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0bd18974-8414-4b83-b3fb-85d2f6a74164",
+      "name": "Create database page",
+      "type": "n8n-nodes-base.notion",
+      "position": [
+        380,
+        240
+      ],
+      "typeVersion": 2,
+      "credentials": {
+        "notionApi": {
+          "id": "8XXe2PHYHrcjE0vd",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.body.action }}",
+              "value2": "opened"
+            }
+          ]
+        }
+      },
+      "id": "5262e14e-adc2-45d1-9e3f-c0eba013077a",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        200,
+        340
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "owner": {
+          "__rl": true,
+          "value": "mihaelabalas84",
+          "mode": "list",
+          "cachedResultName": "mihaelabalas84",
+          "cachedResultUrl": "https://github.com/mihaelabalas84"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "helm-test-repo",
+          "mode": "list",
+          "cachedResultName": "helm-test-repo",
+          "cachedResultUrl": "https://github.com/mihaelabalas84/helm-test-repo"
+        },
+        "events": [
+          "issues"
+        ],
+        "options": {}
+      },
+      "id": "62e1a9d3-3fc6-46de-a048-cf8176f30f94",
+      "name": "Trigger on issues",
+      "type": "n8n-nodes-base.githubTrigger",
+      "position": [
+        20,
+        340
+      ],
+      "webhookId": "bc0a0a44-00db-473b-8746-b60b3b36039c",
+      "typeVersion": 1,
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "xNXo2ubV7QscUdvE",
+          "name": "GitHub account"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Trigger on issues": [
+      {
+        "json": {
+          "body": {
+            "action": "closed",
+            "issue": {
+              "url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/issues/9",
+              "repository_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo",
+              "labels_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/issues/9/labels{/name}",
+              "comments_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/issues/9/comments",
+              "events_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/issues/9/events",
+              "html_url": "https://github.com/mihaelabalas84/helm-test-repo/issues/9",
+              "id": 2078925133,
+              "node_id": "I_kwDOKlSlRM576eFN",
+              "number": 9,
+              "title": "test2",
+              "user": {
+                "login": "mihaelabalas84",
+                "id": 143788303,
+                "node_id": "U_kgDOCJIJDw",
+                "avatar_url": "https://avatars.githubusercontent.com/u/143788303?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/mihaelabalas84",
+                "html_url": "https://github.com/mihaelabalas84",
+                "followers_url": "https://api.github.com/users/mihaelabalas84/followers",
+                "following_url": "https://api.github.com/users/mihaelabalas84/following{/other_user}",
+                "gists_url": "https://api.github.com/users/mihaelabalas84/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/mihaelabalas84/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/mihaelabalas84/subscriptions",
+                "organizations_url": "https://api.github.com/users/mihaelabalas84/orgs",
+                "repos_url": "https://api.github.com/users/mihaelabalas84/repos",
+                "events_url": "https://api.github.com/users/mihaelabalas84/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/mihaelabalas84/received_events",
+                "type": "User",
+                "site_admin": false
+              },
+              "labels": [],
+              "state": "closed",
+              "locked": false,
+              "assignee": null,
+              "assignees": [],
+              "milestone": null,
+              "comments": 0,
+              "created_at": "2024-01-12T14:08:46Z",
+              "updated_at": "2024-01-12T14:23:33Z",
+              "closed_at": "2024-01-12T14:23:33Z",
+              "author_association": "OWNER",
+              "active_lock_reason": null,
+              "body": "test2",
+              "reactions": {
+                "url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/issues/9/reactions",
+                "total_count": 0,
+                "+1": 0,
+                "-1": 0,
+                "laugh": 0,
+                "hooray": 0,
+                "confused": 0,
+                "heart": 0,
+                "rocket": 0,
+                "eyes": 0
+              },
+              "timeline_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/issues/9/timeline",
+              "performed_via_github_app": null,
+              "state_reason": "completed"
+            },
+            "repository": {
+              "id": 710190404,
+              "node_id": "R_kgDOKlSlRA",
+              "name": "helm-test-repo",
+              "full_name": "mihaelabalas84/helm-test-repo",
+              "private": false,
+              "owner": {
+                "login": "mihaelabalas84",
+                "id": 143788303,
+                "node_id": "U_kgDOCJIJDw",
+                "avatar_url": "https://avatars.githubusercontent.com/u/143788303?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/mihaelabalas84",
+                "html_url": "https://github.com/mihaelabalas84",
+                "followers_url": "https://api.github.com/users/mihaelabalas84/followers",
+                "following_url": "https://api.github.com/users/mihaelabalas84/following{/other_user}",
+                "gists_url": "https://api.github.com/users/mihaelabalas84/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/mihaelabalas84/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/mihaelabalas84/subscriptions",
+                "organizations_url": "https://api.github.com/users/mihaelabalas84/orgs",
+                "repos_url": "https://api.github.com/users/mihaelabalas84/repos",
+                "events_url": "https://api.github.com/users/mihaelabalas84/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/mihaelabalas84/received_events",
+                "type": "User",
+                "site_admin": false
+              },
+              "html_url": "https://github.com/mihaelabalas84/helm-test-repo",
+              "description": null,
+              "fork": false,
+              "url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo",
+              "forks_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/forks",
+              "keys_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/keys{/key_id}",
+              "collaborators_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/collaborators{/collaborator}",
+              "teams_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/teams",
+              "hooks_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/hooks",
+              "issue_events_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/issues/events{/number}",
+              "events_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/events",
+              "assignees_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/assignees{/user}",
+              "branches_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/branches{/branch}",
+              "tags_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/tags",
+              "blobs_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/git/blobs{/sha}",
+              "git_tags_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/git/tags{/sha}",
+              "git_refs_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/git/refs{/sha}",
+              "trees_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/git/trees{/sha}",
+              "statuses_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/statuses/{sha}",
+              "languages_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/languages",
+              "stargazers_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/stargazers",
+              "contributors_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/contributors",
+              "subscribers_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/subscribers",
+              "subscription_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/subscription",
+              "commits_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/commits{/sha}",
+              "git_commits_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/git/commits{/sha}",
+              "comments_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/comments{/number}",
+              "issue_comment_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/issues/comments{/number}",
+              "contents_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/contents/{+path}",
+              "compare_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/compare/{base}...{head}",
+              "merges_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/merges",
+              "archive_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/{archive_format}{/ref}",
+              "downloads_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/downloads",
+              "issues_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/issues{/number}",
+              "pulls_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/pulls{/number}",
+              "milestones_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/milestones{/number}",
+              "notifications_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/notifications{?since,all,participating}",
+              "labels_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/labels{/name}",
+              "releases_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/releases{/id}",
+              "deployments_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/deployments",
+              "created_at": "2023-10-26T07:48:24Z",
+              "updated_at": "2024-01-12T12:55:15Z",
+              "pushed_at": "2024-01-12T12:57:14Z",
+              "git_url": "git://github.com/mihaelabalas84/helm-test-repo.git",
+              "ssh_url": "git@github.com:mihaelabalas84/helm-test-repo.git",
+              "clone_url": "https://github.com/mihaelabalas84/helm-test-repo.git",
+              "svn_url": "https://github.com/mihaelabalas84/helm-test-repo",
+              "homepage": null,
+              "size": 43,
+              "stargazers_count": 0,
+              "watchers_count": 0,
+              "language": null,
+              "has_issues": true,
+              "has_projects": true,
+              "has_downloads": true,
+              "has_wiki": true,
+              "has_pages": true,
+              "has_discussions": false,
+              "forks_count": 0,
+              "mirror_url": null,
+              "archived": false,
+              "disabled": false,
+              "open_issues_count": 0,
+              "license": null,
+              "allow_forking": true,
+              "is_template": false,
+              "web_commit_signoff_required": false,
+              "topics": [],
+              "visibility": "public",
+              "forks": 0,
+              "open_issues": 0,
+              "watchers": 0,
+              "default_branch": "main"
+            },
+            "sender": {
+              "login": "mihaelabalas84",
+              "id": 143788303,
+              "node_id": "U_kgDOCJIJDw",
+              "avatar_url": "https://avatars.githubusercontent.com/u/143788303?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/mihaelabalas84",
+              "html_url": "https://github.com/mihaelabalas84",
+              "followers_url": "https://api.github.com/users/mihaelabalas84/followers",
+              "following_url": "https://api.github.com/users/mihaelabalas84/following{/other_user}",
+              "gists_url": "https://api.github.com/users/mihaelabalas84/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/mihaelabalas84/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/mihaelabalas84/subscriptions",
+              "organizations_url": "https://api.github.com/users/mihaelabalas84/orgs",
+              "repos_url": "https://api.github.com/users/mihaelabalas84/repos",
+              "events_url": "https://api.github.com/users/mihaelabalas84/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/mihaelabalas84/received_events",
+              "type": "User",
+              "site_admin": false
+            }
+          },
+          "headers": {
+            "x-forwarded-for": "140.82.115.47",
+            "x-forwarded-proto": "https",
+            "x-forwarded-port": "443",
+            "host": "n8n-sandbox.fm-tech.net",
+            "x-amzn-trace-id": "Root=1-65a14b66-3267cb1b033fe6ed12e13568",
+            "content-length": "8616",
+            "user-agent": "GitHub-Hookshot/13bb3ad",
+            "accept": "*/*",
+            "content-type": "application/json",
+            "x-github-delivery": "2a9b2ae0-b156-11ee-9f4c-e383dc14606c",
+            "x-github-event": "issues",
+            "x-github-hook-id": "454303788",
+            "x-github-hook-installation-target-id": "710190404",
+            "x-github-hook-installation-target-type": "repository"
+          },
+          "query": {}
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Trigger on issues": {
+      "webhookId": 454307086,
+      "webhookEvents": [
+        "issues"
+      ]
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-01-12T14:28:41.409Z",
+  "versionId": "8f8407db-0bf1-43e3-bea6-880ef90ab580"
+}
