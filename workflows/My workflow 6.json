@@ -1,29 +1,81 @@
 {
-  "active": false,
-  "connections": {},
-  "createdAt": "2024-01-12T10:09:23.914Z",
-  "id": "lPdHb4B1kJs9E2GZ",
-  "meta": null,
+  "active": true,
+  "connections": {
+    "Notion Trigger": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-01-12T13:32:07.426Z",
+  "id": "TGT5Slt4dryewHfe",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "My workflow 6",
   "nodes": [
     {
       "parameters": {
-        "resource": "audit",
-        "operation": "generate",
-        "additionalOptions": {}
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "databaseId": {
+          "__rl": true,
+          "value": "https://www.notion.so/ade73a77a9b94f139811874f7f68bb31?v=3ace68d4dd794921bf89fc6c17d05815&pvs=4",
+          "mode": "url"
+        },
+        "simple": false
       },
-      "id": "2ce1b4ac-53dd-4945-bf98-e0f549350e36",
-      "name": "n8n",
-      "type": "n8n-nodes-base.n8n",
-      "position": [
-        520,
-        300
-      ],
+      "id": "d8fdc4ef-f178-4937-af57-4444d8248031",
+      "name": "Notion Trigger",
+      "type": "n8n-nodes-base.notionTrigger",
       "typeVersion": 1,
+      "position": [
+        800,
+        340
+      ],
       "credentials": {
-        "n8nApi": {
-          "id": "k9ssZq2v8UxQiD1x",
-          "name": "n8n account"
+        "notionApi": {
+          "id": "8XXe2PHYHrcjE0vd",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C06DTJRCPC1",
+          "mode": "list",
+          "cachedResultName": "general"
+        },
+        "text": "=Tasks:  {{ $json['Task name'] }} Status:  {{ $json.Status }} Assigned:  {{ $json.Assignee[0] }}",
+        "otherOptions": {}
+      },
+      "id": "e1317a84-4a9b-404e-887c-7ba1830994fa",
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.1,
+      "position": [
+        1020,
+        340
+      ],
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "ANtR2NjhRigogw6t",
+          "name": "Slack account"
         }
       }
     }
@@ -32,9 +84,16 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "staticData": null,
+  "staticData": {
+    "node:Notion Trigger": {
+      "lastTimeChecked": "2024-01-12T14:21:00.000Z",
+      "possibleDuplicates": [
+        "8cf28ec5-5788-4a06-b1da-e470a908c881"
+      ]
+    }
+  },
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2024-01-12T10:12:35.078Z",
-  "versionId": "ffd1b09b-bb78-4cec-9021-7551638ca7ce"
+  "triggerCount": 1,
+  "updatedAt": "2024-01-12T14:21:19.829Z",
+  "versionId": "64718e0e-8d45-478c-a8a0-07fb33b5781b"
 }
