@@ -1,0 +1,40 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2024-01-12T10:09:23.914Z",
+  "id": "lPdHb4B1kJs9E2GZ",
+  "meta": null,
+  "name": "My workflow 6",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "audit",
+        "operation": "generate",
+        "additionalOptions": {}
+      },
+      "id": "2ce1b4ac-53dd-4945-bf98-e0f549350e36",
+      "name": "n8n",
+      "type": "n8n-nodes-base.n8n",
+      "position": [
+        520,
+        300
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "n8nApi": {
+          "id": "k9ssZq2v8UxQiD1x",
+          "name": "n8n account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-01-12T10:12:35.078Z",
+  "versionId": "ffd1b09b-bb78-4cec-9021-7551638ca7ce"
+}
