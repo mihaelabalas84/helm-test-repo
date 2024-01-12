@@ -5,30 +5,7 @@
       "main": [
         [
           {
-            "node": "If",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Slack": {
-      "main": [
-        []
-      ]
-    },
-    "If": {
-      "main": [
-        [
-          {
             "node": "Slack",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Slack1",
             "type": "main",
             "index": 0
           }
@@ -36,11 +13,39 @@
       ]
     }
   },
-  "createdAt": "2024-01-11T15:20:37.969Z",
-  "id": "9Y47qLZAxdpRrZ1p",
+  "createdAt": "2024-01-12T10:58:35.806Z",
+  "id": "AKGvwIi2Yb91I48K",
   "meta": null,
   "name": "My workflow 2",
   "nodes": [
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C06DHDH0Z9S",
+          "mode": "list",
+          "cachedResultName": "devops"
+        },
+        "text": "=New commit is available in  {{ $json.body.repository.name }} pushed by  {{ $json.body.repository.owner.name }}\nCommit ID is:  {{ $json.body.commits[0].id }}  and commit message is:  {{ $json.body.commits[0].message }}",
+        "otherOptions": {}
+      },
+      "id": "ea51b90c-5a25-4efc-afe7-b1c00897e731",
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.1,
+      "position": [
+        720,
+        640
+      ],
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "ANtR2NjhRigogw6t",
+          "name": "Slack account"
+        }
+      }
+    },
     {
       "parameters": {
         "authentication": "oAuth2",
@@ -59,111 +64,22 @@
           "cachedResultUrl": "https://github.com/mihaelabalas84/helm-test-repo"
         },
         "events": [
-          "star"
+          "push"
         ]
       },
-      "id": "8f09d307-ffe5-4819-a61d-53b17df33f89",
+      "id": "6688a7d1-8c2c-45b0-a0ac-bbed26139201",
       "name": "Github Trigger",
       "type": "n8n-nodes-base.githubTrigger",
       "typeVersion": 1,
       "position": [
-        820,
-        400
+        460,
+        460
       ],
-      "webhookId": "d02a82f5-279f-4ac5-be4c-9c13902f4bbe",
+      "webhookId": "816589b2-ff08-4537-8ce3-e675a6e2b4e1",
       "credentials": {
         "githubOAuth2Api": {
-          "id": "SN8Vsltb3HYA5T2a",
+          "id": "xNXo2ubV7QscUdvE",
           "name": "GitHub account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "authentication": "oAuth2",
-        "select": "user",
-        "user": {
-          "__rl": true,
-          "value": "U06DES869GT",
-          "mode": "list",
-          "cachedResultName": "mihaela.balas"
-        },
-        "text": "=New star on repository: {{ $json.body.repository.name }} from user:  {{ $json.body.sender.login }}",
-        "otherOptions": {}
-      },
-      "id": "e95ca399-9b26-48c3-b0a0-facd2e1484a8",
-      "name": "Slack",
-      "type": "n8n-nodes-base.slack",
-      "typeVersion": 2.1,
-      "position": [
-        1320,
-        360
-      ],
-      "credentials": {
-        "slackOAuth2Api": {
-          "id": "Ys6jHartXWk0rRI3",
-          "name": "Slack account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict"
-          },
-          "conditions": [
-            {
-              "id": "540d4bc7-ddda-4704-b326-feeed989790a",
-              "leftValue": "={{ $json.headers['x-github-event'] }}",
-              "rightValue": "star",
-              "operator": {
-                "type": "string",
-                "operation": "equals",
-                "name": "filter.operator.equals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "id": "cd73ae67-c925-4848-8fe7-5819b3ef3f29",
-      "name": "If",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2,
-      "position": [
-        1080,
-        380
-      ]
-    },
-    {
-      "parameters": {
-        "authentication": "oAuth2",
-        "select": "user",
-        "user": {
-          "__rl": true,
-          "value": "U06DES869GT",
-          "mode": "list",
-          "cachedResultName": "mihaela.balas"
-        },
-        "text": "=New star on repository: {{ $json.body.repository.name }} from user:  {{ $json.body.sender.login }}",
-        "otherOptions": {}
-      },
-      "id": "a30fa5d1-c1f9-4dbf-b610-f2e58b258810",
-      "name": "Slack1",
-      "type": "n8n-nodes-base.slack",
-      "typeVersion": 2.1,
-      "position": [
-        1340,
-        540
-      ],
-      "credentials": {
-        "slackOAuth2Api": {
-          "id": "Ys6jHartXWk0rRI3",
-          "name": "Slack account"
         }
       }
     }
@@ -173,8 +89,9 @@
       {
         "json": {
           "body": {
-            "action": "deleted",
-            "starred_at": null,
+            "ref": "refs/heads/main",
+            "before": "07e0b249cb9cfc22a41a840b94f113c7bc511891",
+            "after": "214a06b1fc68c1c44cb411c4cafdf7363fe24183",
             "repository": {
               "id": 710190404,
               "node_id": "R_kgDOKlSlRA",
@@ -182,6 +99,8 @@
               "full_name": "mihaelabalas84/helm-test-repo",
               "private": false,
               "owner": {
+                "name": "mihaelabalas84",
+                "email": "143788303+mihaelabalas84@users.noreply.github.com",
                 "login": "mihaelabalas84",
                 "id": 143788303,
                 "node_id": "U_kgDOCJIJDw",
@@ -204,7 +123,7 @@
               "html_url": "https://github.com/mihaelabalas84/helm-test-repo",
               "description": null,
               "fork": false,
-              "url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo",
+              "url": "https://github.com/mihaelabalas84/helm-test-repo",
               "forks_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/forks",
               "keys_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/keys{/key_id}",
               "collaborators_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/collaborators{/collaborator}",
@@ -241,17 +160,17 @@
               "labels_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/labels{/name}",
               "releases_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/releases{/id}",
               "deployments_url": "https://api.github.com/repos/mihaelabalas84/helm-test-repo/deployments",
-              "created_at": "2023-10-26T07:48:24Z",
-              "updated_at": "2024-01-11T15:23:53Z",
-              "pushed_at": "2024-01-11T14:47:58Z",
+              "created_at": 1698306504,
+              "updated_at": "2024-01-11T13:53:07Z",
+              "pushed_at": 1704983231,
               "git_url": "git://github.com/mihaelabalas84/helm-test-repo.git",
               "ssh_url": "git@github.com:mihaelabalas84/helm-test-repo.git",
               "clone_url": "https://github.com/mihaelabalas84/helm-test-repo.git",
               "svn_url": "https://github.com/mihaelabalas84/helm-test-repo",
               "homepage": null,
               "size": 12,
-              "stargazers_count": 0,
-              "watchers_count": 0,
+              "stargazers_count": 1,
+              "watchers_count": 1,
               "language": null,
               "has_issues": true,
               "has_projects": true,
@@ -272,8 +191,14 @@
               "visibility": "public",
               "forks": 0,
               "open_issues": 0,
-              "watchers": 0,
-              "default_branch": "main"
+              "watchers": 1,
+              "default_branch": "main",
+              "stargazers": 1,
+              "master_branch": "main"
+            },
+            "pusher": {
+              "name": "mihaelabalas84",
+              "email": "143788303+mihaelabalas84@users.noreply.github.com"
             },
             "sender": {
               "login": "mihaelabalas84",
@@ -294,21 +219,74 @@
               "received_events_url": "https://api.github.com/users/mihaelabalas84/received_events",
               "type": "User",
               "site_admin": false
+            },
+            "created": false,
+            "deleted": false,
+            "forced": false,
+            "base_ref": null,
+            "compare": "https://github.com/mihaelabalas84/helm-test-repo/compare/07e0b249cb9c...214a06b1fc68",
+            "commits": [
+              {
+                "id": "214a06b1fc68c1c44cb411c4cafdf7363fe24183",
+                "tree_id": "ee8d48b37303606e6a19146246b2ed2f41a451ab",
+                "distinct": true,
+                "message": "Remote push -8",
+                "timestamp": "2024-01-11T16:27:02+02:00",
+                "url": "https://github.com/mihaelabalas84/helm-test-repo/commit/214a06b1fc68c1c44cb411c4cafdf7363fe24183",
+                "author": {
+                  "name": "Mihaela Balas",
+                  "email": "mihaela.balas@gmail.com",
+                  "username": "mihaelabalas84"
+                },
+                "committer": {
+                  "name": "Mihaela Balas",
+                  "email": "mihaela.balas@gmail.com",
+                  "username": "mihaelabalas84"
+                },
+                "added": [],
+                "removed": [],
+                "modified": [
+                  "README.md"
+                ]
+              }
+            ],
+            "head_commit": {
+              "id": "214a06b1fc68c1c44cb411c4cafdf7363fe24183",
+              "tree_id": "ee8d48b37303606e6a19146246b2ed2f41a451ab",
+              "distinct": true,
+              "message": "Remote push -8",
+              "timestamp": "2024-01-11T16:27:02+02:00",
+              "url": "https://github.com/mihaelabalas84/helm-test-repo/commit/214a06b1fc68c1c44cb411c4cafdf7363fe24183",
+              "author": {
+                "name": "Mihaela Balas",
+                "email": "mihaela.balas@gmail.com",
+                "username": "mihaelabalas84"
+              },
+              "committer": {
+                "name": "Mihaela Balas",
+                "email": "mihaela.balas@gmail.com",
+                "username": "mihaelabalas84"
+              },
+              "added": [],
+              "removed": [],
+              "modified": [
+                "README.md"
+              ]
             }
           },
           "headers": {
-            "x-forwarded-for": "140.82.115.250",
+            "x-forwarded-for": "140.82.115.123",
             "x-forwarded-proto": "https",
             "x-forwarded-port": "443",
             "host": "n8n-sandbox.fm-tech.net",
-            "x-amzn-trace-id": "Root=1-65a0080a-0ca69d21013e47174bae30e7",
-            "content-length": "6435",
+            "x-amzn-trace-id": "Root=1-659ffac1-25e244d84d9f6a8c2ee17c10",
+            "content-length": "7964",
             "user-agent": "GitHub-Hookshot/ab855f2",
             "accept": "*/*",
             "content-type": "application/json",
-            "x-github-delivery": "6dd8e250-b095-11ee-9657-b4981558af64",
-            "x-github-event": "star",
-            "x-github-hook-id": "454118069",
+            "x-github-delivery": "828b1068-b08d-11ee-90a2-af945188674c",
+            "x-github-event": "push",
+            "x-github-hook-id": "454109233",
             "x-github-hook-installation-target-id": "710190404",
             "x-github-hook-installation-target-type": "repository"
           },
@@ -322,14 +300,14 @@
   },
   "staticData": {
     "node:Github Trigger": {
-      "webhookId": 454118716,
+      "webhookId": 454272488,
       "webhookEvents": [
-        "star"
+        "push"
       ]
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-01-11T15:28:18.913Z",
-  "versionId": "8deaccdc-bfc1-4c20-b444-55f2d4ad6d04"
+  "updatedAt": "2024-01-12T10:58:36.629Z",
+  "versionId": "e2bb8db4-18ac-4c2d-8e55-d448bb9c81d1"
 }
