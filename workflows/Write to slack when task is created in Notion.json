@@ -1,0 +1,99 @@
+{
+  "active": true,
+  "connections": {
+    "Notion Trigger": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-01-12T13:32:07.426Z",
+  "id": "TGT5Slt4dryewHfe",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Write to slack when task is created in Notion",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "databaseId": {
+          "__rl": true,
+          "value": "https://www.notion.so/ade73a77a9b94f139811874f7f68bb31?v=3ace68d4dd794921bf89fc6c17d05815&pvs=4",
+          "mode": "url"
+        },
+        "simple": false
+      },
+      "id": "d8fdc4ef-f178-4937-af57-4444d8248031",
+      "name": "Notion Trigger",
+      "type": "n8n-nodes-base.notionTrigger",
+      "typeVersion": 1,
+      "position": [
+        800,
+        340
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "8XXe2PHYHrcjE0vd",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C06DTJRCPC1",
+          "mode": "list",
+          "cachedResultName": "general"
+        },
+        "text": "=Tasks:  {{ $json['Task name'] }} Status:  {{ $json.Status }} Assigned:  {{ $json.Assignee[0] }}",
+        "otherOptions": {}
+      },
+      "id": "e1317a84-4a9b-404e-887c-7ba1830994fa",
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.1,
+      "position": [
+        1020,
+        340
+      ],
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "ANtR2NjhRigogw6t",
+          "name": "Slack account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Notion Trigger": {
+      "lastTimeChecked": "2024-01-16T09:59:00.000Z",
+      "possibleDuplicates": [
+        "8cf28ec5-5788-4a06-b1da-e470a908c881"
+      ]
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-01-16T09:59:35.044Z",
+  "versionId": "28431297-f2d9-4ce0-a786-0dcbf978533e"
+}
