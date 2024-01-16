@@ -1,0 +1,42 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2024-01-12T11:00:24.434Z",
+  "id": "a9UVh6lyzBJVsISI",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "N8N audit",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "audit",
+        "operation": "generate",
+        "additionalOptions": {}
+      },
+      "id": "1324aaae-5c54-4046-ab0e-e647769c6037",
+      "name": "n8n",
+      "type": "n8n-nodes-base.n8n",
+      "position": [
+        460,
+        460
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "n8nApi": {
+          "id": "fNMpkfeEDOid5NkJ",
+          "name": "n8n account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-01-16T09:57:54.139Z",
+  "versionId": "aa21bf78-7fbf-4423-a2cf-ccf585fc3a30"
+}
