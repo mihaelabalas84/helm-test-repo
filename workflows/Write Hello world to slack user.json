@@ -1,0 +1,97 @@
+{
+  "active": false,
+  "connections": {
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-01-16T10:35:27.401Z",
+  "id": "zuZAxfyec4ZC88Eb",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Write Hello world to slack user",
+  "nodes": [
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "# Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor item in _input.all():\n\titem.json.myNewField = \"Hello World from N8N staging app\"\nreturn _input.all()"
+      },
+      "id": "2a1649d9-99c7-4b41-8b47-12d112669dde",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        620,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "user",
+        "user": {
+          "__rl": true,
+          "value": "U06DES869GT",
+          "mode": "list",
+          "cachedResultName": "mihaela.balas"
+        },
+        "text": "={{ $json.myNewField }}",
+        "otherOptions": {}
+      },
+      "id": "26100664-ce71-4408-9497-f2c74d7a76c1",
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.1,
+      "position": [
+        840,
+        460
+      ],
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "X57xMBsE8s4a44kS",
+          "name": "Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "ccb124c6-ad5d-4c37-8f8b-54d2dfc5b22b",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        460,
+        460
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-01-16T10:36:33.897Z",
+  "versionId": "2698c9c0-3637-4dd8-aecf-164dc10d357e"
+}
