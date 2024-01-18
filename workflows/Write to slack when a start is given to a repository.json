@@ -21,12 +21,18 @@
             "index": 0
           }
         ],
-        []
+        [
+          {
+            "node": "Slack1",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
-  "createdAt": "2024-01-16T10:37:40.854Z",
-  "id": "TnC0Vlj0QCAX039z",
+  "createdAt": "2024-01-12T10:57:58.156Z",
+  "id": "osOvzAcON2ebIQGY",
   "meta": {
     "templateCredsSetupCompleted": true
   },
@@ -34,7 +40,6 @@
   "nodes": [
     {
       "parameters": {
-        "authentication": "oAuth2",
         "owner": {
           "__rl": true,
           "value": "mihaelabalas84",
@@ -54,7 +59,7 @@
         ],
         "options": {}
       },
-      "id": "ccc5db30-1a95-4453-8ba9-4abbe2d0f4c9",
+      "id": "d0e5c25d-c93d-4786-881b-3777389b4215",
       "name": "Github Trigger",
       "type": "n8n-nodes-base.githubTrigger",
       "typeVersion": 1,
@@ -64,9 +69,9 @@
       ],
       "webhookId": "d02a82f5-279f-4ac5-be4c-9c13902f4bbe",
       "credentials": {
-        "githubOAuth2Api": {
-          "id": "bMxKCMS5qrLXQLTU",
-          "name": "GitHub account"
+        "githubApi": {
+          "id": "0jIj3sNESNGoPi8j",
+          "name": "GitHub account 2"
         }
       }
     },
@@ -80,10 +85,10 @@
           "mode": "list",
           "cachedResultName": "mihaela.balas"
         },
-        "text": "=New star on repository: {{ $json.body.repository.name }} from user:  {{ $json.body.sender.login }}\nreports N8N staging app",
+        "text": "=New star on repository: {{ $json.body.repository.name }} from user:  {{ $json.body.sender.login }}",
         "otherOptions": {}
       },
-      "id": "bad1f046-1d9c-4be7-9379-78234d3aaa86",
+      "id": "6b08b267-fd50-4013-a4e1-49e6fbac79da",
       "name": "Slack",
       "type": "n8n-nodes-base.slack",
       "typeVersion": 2.1,
@@ -93,7 +98,7 @@
       ],
       "credentials": {
         "slackOAuth2Api": {
-          "id": "X57xMBsE8s4a44kS",
+          "id": "ANtR2NjhRigogw6t",
           "name": "Slack account"
         }
       }
@@ -122,7 +127,7 @@
         },
         "options": {}
       },
-      "id": "911fa77d-c7f5-4bc2-a45d-5cffd4f8ca25",
+      "id": "6243a418-d8b4-4609-a85a-904a9df91695",
       "name": "If",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
@@ -130,6 +135,34 @@
         220,
         480
       ]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "user",
+        "user": {
+          "__rl": true,
+          "value": "U06DES869GT",
+          "mode": "list",
+          "cachedResultName": "mihaela.balas"
+        },
+        "text": "=New star on repository: {{ $json.body.repository.name }} from user:  {{ $json.body.sender.login }}",
+        "otherOptions": {}
+      },
+      "id": "e08f7cba-1ca1-469e-91cf-b4af4dace24e",
+      "name": "Slack1",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.1,
+      "position": [
+        480,
+        640
+      ],
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "ANtR2NjhRigogw6t",
+          "name": "Slack account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -138,7 +171,7 @@
   },
   "staticData": {
     "node:Github Trigger": {
-      "webhookId": 455014104,
+      "webhookId": 455008315,
       "webhookEvents": [
         "star"
       ]
@@ -146,6 +179,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-01-16T10:39:14.428Z",
-  "versionId": "1335a78b-4284-4395-bf09-acc68743b1cd"
+  "updatedAt": "2024-01-16T09:58:24.612Z",
+  "versionId": "c2b3ff7e-0782-419b-bf06-c60939a73960"
 }
