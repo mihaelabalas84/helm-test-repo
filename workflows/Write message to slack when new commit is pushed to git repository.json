@@ -13,8 +13,8 @@
       ]
     }
   },
-  "createdAt": "2024-01-12T10:58:35.806Z",
-  "id": "AKGvwIi2Yb91I48K",
+  "createdAt": "2024-01-16T10:40:37.386Z",
+  "id": "ZYipPVdirUFlxbTb",
   "meta": {
     "templateCredsSetupCompleted": true
   },
@@ -33,7 +33,7 @@
         "text": "=New commit is available in  {{ $json.body.repository.name }} pushed by  {{ $json.body.repository.owner.name }}\nCommit ID is:  {{ $json.body.commits[0].id }}  and commit message is:  {{ $json.body.commits[0].message }}",
         "otherOptions": {}
       },
-      "id": "ea51b90c-5a25-4efc-afe7-b1c00897e731",
+      "id": "fb40589b-b2a2-4463-b604-b31e898bdf74",
       "name": "Slack",
       "type": "n8n-nodes-base.slack",
       "typeVersion": 2.1,
@@ -43,7 +43,7 @@
       ],
       "credentials": {
         "slackOAuth2Api": {
-          "id": "ANtR2NjhRigogw6t",
+          "id": "X57xMBsE8s4a44kS",
           "name": "Slack account"
         }
       }
@@ -70,7 +70,7 @@
         ],
         "options": {}
       },
-      "id": "6688a7d1-8c2c-45b0-a0ac-bbed26139201",
+      "id": "0387d7d1-8656-4d52-9fa4-2705b9b11670",
       "name": "Github Trigger",
       "type": "n8n-nodes-base.githubTrigger",
       "typeVersion": 1,
@@ -81,7 +81,7 @@
       "webhookId": "816589b2-ff08-4537-8ce3-e675a6e2b4e1",
       "credentials": {
         "githubOAuth2Api": {
-          "id": "xNXo2ubV7QscUdvE",
+          "id": "bMxKCMS5qrLXQLTU",
           "name": "GitHub account"
         }
       }
@@ -303,7 +303,7 @@
   },
   "staticData": {
     "node:Github Trigger": {
-      "webhookId": 455007913,
+      "webhookId": 455014423,
       "webhookEvents": [
         "push"
       ]
@@ -311,6 +311,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-01-16T09:55:26.929Z",
-  "versionId": "155db8b1-f38b-4394-b6ab-9341543812a5"
+  "updatedAt": "2024-01-16T10:41:22.472Z",
+  "versionId": "19e34bd2-0fcd-4c45-a398-cd17df37d4f6"
 }
