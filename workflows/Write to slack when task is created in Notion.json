@@ -86,7 +86,7 @@
   },
   "staticData": {
     "node:Notion Trigger": {
-      "lastTimeChecked": "2024-01-18T08:58:00.000Z",
+      "lastTimeChecked": "2024-01-18T15:43:00.000Z",
       "possibleDuplicates": [
         "8cf28ec5-5788-4a06-b1da-e470a908c881"
       ]
@@ -94,6 +94,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-01-18T08:58:21.997Z",
+  "updatedAt": "2024-01-18T15:43:10.917Z",
   "versionId": "28431297-f2d9-4ce0-a786-0dcbf978533e"
 }
