@@ -1,0 +1,101 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-01-18T12:05:51.056Z",
+  "id": "hP59y8BiIDyFudkT",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Webhook",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "my-url",
+        "options": {}
+      },
+      "id": "3b05c300-4245-43fa-a9bd-1b8a6ef8b42d",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        340
+      ],
+      "webhookId": "9b5caa62-9d59-4cf4-a950-9c690249c059"
+    },
+    {
+      "parameters": {
+        "unit": "seconds"
+      },
+      "id": "64c97020-1354-47a4-9f0f-861165e9a614",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        940,
+        340
+      ],
+      "webhookId": "7f57b087-4103-467d-89e2-9f4f927b73fb"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "user",
+        "user": {
+          "__rl": true,
+          "value": "U06DES869GT",
+          "mode": "list",
+          "cachedResultName": "mihaela.balas"
+        },
+        "text": "Test node",
+        "otherOptions": {}
+      },
+      "id": "265eaf72-5969-4c50-a805-785a511e3d9d",
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.1,
+      "position": [
+        1160,
+        340
+      ],
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "ANtR2NjhRigogw6t",
+          "name": "Slack account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-01-18T13:43:57.219Z",
+  "versionId": "679a46b4-8639-4dcc-9a24-89d514d74238"
+}
