@@ -70,7 +70,7 @@
           "mode": "list",
           "cachedResultName": "mihaela.balas"
         },
-        "text": "Test node",
+        "text": "=Test node {{ $json.headers['sec-ch-ua-platform'] }}",
         "otherOptions": {}
       },
       "id": "265eaf72-5969-4c50-a805-785a511e3d9d",
@@ -96,6 +96,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-01-18T13:43:57.219Z",
-  "versionId": "679a46b4-8639-4dcc-9a24-89d514d74238"
+  "updatedAt": "2024-01-19T08:09:39.781Z",
+  "versionId": "1a9ddd8f-b9bf-4495-a907-2fc3d7bab58d"
 }
