@@ -1,25 +1,45 @@
 {
   "active": false,
   "connections": {},
-  "createdAt": "2024-01-17T17:26:53.985Z",
-  "id": "MQWIITtcIKyJMnNC",
-  "meta": null,
+  "createdAt": "2024-01-19T14:37:47.285Z",
+  "id": "6WB97wE0Q9RKwTcJ",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "My workflow",
-  "nodes": [],
+  "nodes": [
+    {
+      "parameters": {
+        "topic": {
+          "__rl": true,
+          "value": "arn:aws:sns:eu-west-1:027159582536:fairmoney-staging-account-created",
+          "mode": "id"
+        }
+      },
+      "id": "b49e2614-f72c-4846-b963-99537fe95b87",
+      "name": "AWS SNS Trigger",
+      "type": "n8n-nodes-base.awsSnsTrigger",
+      "typeVersion": 1,
+      "position": [
+        800,
+        340
+      ],
+      "webhookId": "dfa7b8b1-35fe-4e91-a49e-32a63a9d268e",
+      "credentials": {
+        "aws": {
+          "id": "G6EH1G8oYAC5ZxwT",
+          "name": "AWS account"
+        }
+      }
+    }
+  ],
   "pinData": {},
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
-  "tags": [
-    {
-      "createdAt": "2024-01-17T17:26:52.853Z",
-      "updatedAt": "2024-01-17T17:26:52.853Z",
-      "id": "mIDwOMiefvyRGdAF",
-      "name": "customer-io"
-    }
-  ],
+  "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-01-17T17:26:53.985Z",
-  "versionId": "1b2214a5-b074-47e6-9ac0-7f5c3fd7c77d"
+  "updatedAt": "2024-01-19T15:13:23.327Z",
+  "versionId": "5f4bcd87-1dc0-462f-9aaa-e6a09967532b"
 }
