@@ -1,0 +1,76 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-01-18T11:48:04.524Z",
+  "id": "VeD1xSgpdVsvWUn3",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "webhook to slack",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "f0179e7b-bbcd-489d-9272-e3e41f63a07a",
+        "options": {}
+      },
+      "id": "81703dea-98ed-4882-bcad-aabb463a8a0e",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        820,
+        320
+      ],
+      "webhookId": "f0179e7b-bbcd-489d-9272-e3e41f63a07a"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "user",
+        "user": {
+          "__rl": true,
+          "value": "U06DES869GT",
+          "mode": "list",
+          "cachedResultName": "mihaela.balas"
+        },
+        "text": "={{ $json.headers['x-forwarded-for'] }}",
+        "otherOptions": {}
+      },
+      "id": "35209ab1-9e93-4af5-97cc-3093f101ae05",
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.1,
+      "position": [
+        1040,
+        320
+      ],
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "X57xMBsE8s4a44kS",
+          "name": "Slack account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-01-19T08:23:01.529Z",
+  "versionId": "83efd6a1-ed1e-44c2-8de9-55458b96fb44"
+}
