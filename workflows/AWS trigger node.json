@@ -1,0 +1,91 @@
+{
+  "active": true,
+  "connections": {
+    "AWS SNS Trigger": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-01-19T14:37:47.285Z",
+  "id": "6WB97wE0Q9RKwTcJ",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "AWS trigger node",
+  "nodes": [
+    {
+      "parameters": {
+        "topic": {
+          "__rl": true,
+          "value": "arn:aws:sns:eu-west-1:027159582536:emil-test",
+          "mode": "list",
+          "cachedResultName": "emil-test",
+          "cachedResultUrl": "https://eu-west-1.console.aws.amazon.com/sns/v3/home?region=eu-west-1#/topic/arn:aws:sns:eu-west-1:027159582536:emil-test"
+        }
+      },
+      "id": "b49e2614-f72c-4846-b963-99537fe95b87",
+      "name": "AWS SNS Trigger",
+      "type": "n8n-nodes-base.awsSnsTrigger",
+      "typeVersion": 1,
+      "position": [
+        800,
+        340
+      ],
+      "webhookId": "dfa7b8b1-35fe-4e91-a49e-32a63a9d268e",
+      "credentials": {
+        "aws": {
+          "id": "8GXl3JrA3zDZ0AUR",
+          "name": "AWS account FROM ENV"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C06DTJRCPC1",
+          "mode": "list",
+          "cachedResultName": "general"
+        },
+        "text": "={{ $json.Message }}",
+        "otherOptions": {}
+      },
+      "id": "100c0bd9-af66-4ea0-8b5d-8996242c2519",
+      "name": "Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.1,
+      "position": [
+        1020,
+        340
+      ],
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "ANtR2NjhRigogw6t",
+          "name": "Slack account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:AWS SNS Trigger": {
+      "webhookId": "arn:aws:sns:eu-west-1:027159582536:emil-test:6d685f7b-8f9f-4062-a718-756e1bf2b7c2"
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-01-30T08:57:37.168Z",
+  "versionId": "8fb1d1df-92cf-4f2c-b1f1-a7246676eb58"
+}
