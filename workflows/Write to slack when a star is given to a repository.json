@@ -85,7 +85,7 @@
           "mode": "list",
           "cachedResultName": "mihaela.balas"
         },
-        "text": "=New star on repository: {{ $json.body.repository.name }} from user:  {{ $json.body.sender.login }}",
+        "text": "=New star on repository: {{ $json.body.repository.name }} from user:  {{ $json.body.sender.login }} at  {{ $json.body.starred_at }}",
         "otherOptions": {}
       },
       "id": "6b08b267-fd50-4013-a4e1-49e6fbac79da",
@@ -171,7 +171,7 @@
   },
   "staticData": {
     "node:Github Trigger": {
-      "webhookId": 457821286,
+      "webhookId": 457995886,
       "webhookEvents": [
         "star"
       ]
@@ -179,6 +179,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-01-30T13:57:47.460Z",
-  "versionId": "a6f04d87-1f2b-4d2c-b1fb-ccab74f6c018"
+  "updatedAt": "2024-01-31T10:29:34.405Z",
+  "versionId": "146ad260-043f-411d-9942-907061578629"
 }
