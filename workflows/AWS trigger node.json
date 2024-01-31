@@ -81,11 +81,11 @@
   },
   "staticData": {
     "node:AWS SNS Trigger": {
-      "webhookId": "arn:aws:sns:eu-west-1:027159582536:emil-test:5375c51d-2022-47a3-b44b-c45c92cbd01b"
+      "webhookId": "arn:aws:sns:eu-west-1:027159582536:emil-test:f1fec334-c6df-45f7-af44-5b0aae7af28b"
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-01-30T09:52:18.529Z",
-  "versionId": "8fb1d1df-92cf-4f2c-b1f1-a7246676eb58"
+  "updatedAt": "2024-01-31T10:32:01.417Z",
+  "versionId": "93f537c4-7a81-40b7-904d-5fc7baa61ace"
 }
